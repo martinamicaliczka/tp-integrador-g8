@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from "react-router-dom"; 
 function Header() { 
     return (
-    <nav> 
+    <div>
+        <h1>GIRLFLIX</h1>
+        <nav> 
         <ul className="nav nav-tabs my-4"> 
             <li className="nav-item"> 
                 <Link to="/home" className="nav-link">Home</Link> </li> 
@@ -18,6 +20,8 @@ function Header() {
             <button ton type="submit" className="btn btn-success btn-sm">Buscar</button> 
         </form> 
         </nav>
+    </div>
+    
     ) 
 } 
 export default Header;
