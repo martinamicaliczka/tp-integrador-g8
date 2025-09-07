@@ -1,0 +1,16 @@
+footer {
+  background-color: #141414; 
+  color: #808080; 
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+  border-top: 1px solid #222; 
+}
+.roboto{
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 250;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
