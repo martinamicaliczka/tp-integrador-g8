@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import FormularioBusqueda from '../FormularioBusqueda/FormularioBusqueda';
 function Header() { 
     return (
-    <div>
+    <div className="header-container">
         <h1>GIRLFLIX</h1>
-        <nav> 
+        <nav className="nav-container"> 
         <ul className="nav nav-tabs my-4"> 
             <li className="nav-item"> 
                 <Link to="/home" className="nav-link">Home</Link> </li> 
@@ -19,7 +19,6 @@ function Header() {
         <FormularioBusqueda/>
         </nav>
     </div>
-    
-    ) 
+) 
 } 
 export default Header;
