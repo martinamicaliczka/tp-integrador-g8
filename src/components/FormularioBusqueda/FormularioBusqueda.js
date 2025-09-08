@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom/cjs/react-router-dom.min'
 class FormularioBusqueda extends Component {
     constructor(props){
         super(props)
@@ -25,4 +26,4 @@ class FormularioBusqueda extends Component {
         )
     }
 }
-export default FormularioBusqueda;
+export default withRouter (FormularioBusqueda);

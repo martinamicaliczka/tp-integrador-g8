@@ -14,3 +14,10 @@
   font-variation-settings:
     "wdth" 100;
 }
+.padreFooter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     
+}
