@@ -68,3 +68,24 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+Guia de como usar la apiKey by Briana_ML
+
+en la carpeta utils encuentran la key ya lista para usar 
+
+En cada endpoint de TMDB la API Key va en la URL como parámetro:
+un ejemplo: 
+    https://api.themoviedb.org/3/movie/popular?api_key=TU_API_KEY
+
+para poder usarla, deben siempre primero importarla en el componente/screen que quieran usarlo y listo. 
+asi: 
+    import { api_key } from "./utils/apiKey.js";
+
+y aqui un ejemplo de uso: 
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data.results);
+        });
