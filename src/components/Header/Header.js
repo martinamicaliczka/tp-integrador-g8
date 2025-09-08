@@ -1,5 +1,6 @@
 import React from 'react'; 
 import { Link } from "react-router-dom"; 
+import FormularioBusqueda from '../FormularioBusqueda/FormularioBusqueda';
 function Header() { 
     return (
     <div>
@@ -15,10 +16,7 @@ function Header() {
             <li className="nav-item"> 
                 <Link to="/favorites" className="nav-link">Favoritas</Link> </li> 
         </ul> 
-        <form className="search-form" action="/results" method="get"> 
-            <input type="text" className="" name="searchData" placeholder="Buscar..."/> 
-            <button ton type="submit" className="btn btn-success btn-sm">Buscar</button> 
-        </form> 
+        <FormularioBusqueda/>
         </nav>
     </div>
     
