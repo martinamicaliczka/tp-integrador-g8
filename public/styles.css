@@ -84,9 +84,3 @@ nav {
 .all-movies .single-card-movie {
     width: 15%;
 }
-
-@media(min-width: 765px){
-    nav {
-        grid-template-columns: 4fr 3fr;
-    }
-}
