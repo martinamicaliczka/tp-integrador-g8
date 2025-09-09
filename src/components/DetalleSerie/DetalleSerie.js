@@ -17,13 +17,13 @@ export default class DetalleSerie extends Component {
         const {agregarAFavoritos} = this.state
         return (
             <div className="detail">
-                <h2 className="alert alert-primary">{serie.name}</h2>
-                <img
-                    className="poster"
-                    src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
-                    alt={serie.name}
-                />
-                <section className="info">
+                <h2 className="detail-title">{serie.name}</h2>
+                <section className="detail-row">
+                    <img
+                        className="detail-poster"
+                        src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
+                        alt={serie.name}
+                    />
                     <section className="info">
                         <h3>Descripción</h3>
                         <p className="description">{serie.overview}</p>
@@ -31,7 +31,7 @@ export default class DetalleSerie extends Component {
                         <p className="mt-0 mb-0" id="episodes"><strong>Número de capítulos:</strong> {serie.number_of_episodes}</p>
                         <p className="mt-0 seasons"><strong>Temporadas:</strong> {serie.number_of_seasons}</p>
                         <p className="mt-0"><strong>Géneros:</strong>
-                            <ul>
+                            <ul className='genres-list'>
                                 {serie.genres && serie.genres.map(g => 
                                     <li key={g.id}>{g.name}</li>
                                 )}
@@ -44,7 +44,7 @@ export default class DetalleSerie extends Component {
                         </button>
                     </section>
                 </section>
-        </div>
+            </div>
         )
     }
 }
