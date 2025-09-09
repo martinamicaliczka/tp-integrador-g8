@@ -1,0 +1,110 @@
+.detail {
+    --bg: #0f0f0f;
+    --text: #e6e6e6;
+    --muted: #9aa0a6;
+    --accent: #e50914;
+    background: var(--bg);
+    color: var(--text);
+    padding: 24px;
+    border-radius: 12px;
+}
+.alert.alert-primary {
+    background: var(--panel);
+    color: #e6f0ff;
+    border: 1px solid rgba(207,226,255,.25);
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 18px 0;
+}
+.poster {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+.info {
+    background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 12px;
+    padding: 18px 18px 14px;
+}
+.info h3 {
+    margin: 0 0 10px 0;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--accent);
+}
+.description {
+    color: #dddddd;
+    line-height: 1.65;
+    margin: 0 0 14px 0;
+}
+.info p {
+    margin: 6px 0;
+    font-size: 15.5px;
+}
+.info p strong {
+    color: var(--muted);
+    font-weight: 700;
+    margin-right: 6px;
+}
+.info .genres-list {
+    margin: 6px 0 0;
+    padding-left: 18px;
+}
+.info .genres-list li {
+    margin: 4px 0;
+    color: #e8e8e8;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+.fav-btn {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease;
+    width: 100%; /* ocupa todo en mobile */
+}
+.fav-btn:hover {
+    border-color: #fff;
+    background: rgba(255,255,255,.06);
+}
+.fav-btn.activo {
+    background: #e50914;     
+    border-color: #e50914;
+    color: #fff;
+}
+.fav-btn.activo:hover {
+    background: #b20710;     
+}
+@media (max-width: 480px) {
+    .detail {
+        padding: 12px;
+    }
+    .poster {
+        max-width: 100%;
+        margin-bottom: 12px;
+    }
+    .info {
+        padding: 12px;
+    }
+    .info h3 {
+        font-size: 18px;
+    }
+    .description,
+    .info p,
+    .genres-list li {
+        font-size: 13.5px;
+    }
+}
