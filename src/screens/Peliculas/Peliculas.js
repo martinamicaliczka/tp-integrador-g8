@@ -21,7 +21,7 @@ export default class Peliculas extends Component {
             this.setState({
             peliculas: data.results,
             pedidoInicialCompleto: true,
-            paginaSiguiente: data.info.next,
+            paginaSiguiente: null,
             backup:data.results
         })}
     )
@@ -33,13 +33,16 @@ export default class Peliculas extends Component {
         .then((data)=> {
             this.setState({
                 peliculas: this.state.peliculas.concat(data.results),
-                paginaSiguiente: data.info.next,
+                paginaSiguiente: null,
                 backup: this.state.backup.concat(data.results),
 
             },
         )
         })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+        console.log(err);
+        this.setState({ pedidoInicialCompleto: true }); 
+})
     }
      eliminarPersonaje(id){
         const personajesFiltrados = this.state.peliculas.filter((p) => p.id !== id);
@@ -57,7 +60,7 @@ export default class Peliculas extends Component {
   render() {
     return (
       <React.Fragment>
-            <h1>Popular movies</h1>
+            <h2 className="alert alert-primary">Popular movies</h2>
             {this.state.pedidoInicialCompleto ?
                 <SRM peliculas={this.state.peliculas} onDelete={(id) => this.eliminarPersonaje(id)}/> : <h2>Cargando ...</h2>
             }

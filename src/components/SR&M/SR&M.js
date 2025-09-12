@@ -2,20 +2,19 @@ import React from "react";
 import Pelicula from "../Pelicula/Pelicula";
 
 function SRM(props) {
+    const maximo = 160;
   return (
-    <section className="top-personaje">
-      {peliculas.map((p) => (
-        <article key={p.id}>
+  <section className="row cards" id="movies">
+      {props.peliculas.map((p) => (
           <Pelicula
             id={p.id}
             posterPath={p.poster_path}
             title={p.title}             
-            description={p.overview}
+            description={ p.overview.length>maximo ? p.overview.slice(0, maximo) + '...' : p.overview}
             origin={p.original_language}
             extra={`Estreno: ${p.release_date}`}
-            onDelete={onDelete}
+            onDelete={props.onDelete}
           />
-        </article>
       ))}
     </section>
   );

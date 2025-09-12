@@ -23,11 +23,11 @@ class Pelicula extends Component {
   render(){
     return (
   <article
-    className={`single-card-movie ${this.state.seleccionada ? "selected" : ""}`}
+    className="single-card-movie"
     onDoubleClick={this.toggleSeleccion}
   >
     <img
-      src={`https://api.themoviedb.org/3/network/${this.props.id}/images`} 
+      src={`https://image.tmdb.org/t/p/w500${this.props.posterPath}`} 
       alt={this.props.title}
       className="card-img-top"
     />

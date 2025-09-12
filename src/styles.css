@@ -75,12 +75,14 @@ nav {
 }
 .cardBody {
     margin-top: 20px;
+    margin-bottom: 20px;
+
 }
 .single-card-people {
     width: 19%;
 }
 .single-card-movie {
-    width: 24%;
+    width: 17%;
 }
 .single-card-playing {
     width: 15%;
