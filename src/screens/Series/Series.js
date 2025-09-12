@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { api_key } from "../../utils/ApiKey";
-import SRM from '../../components/SR&M/SR&M'
-
-export default class Peliculas extends Component {
+import SeriesPadre from '../../components/SeriesPadre/SeriesPadre';
+export default class Series extends Component {
     constructor(props){
         super(props)
             this.state={
-                peliculas: [],
+                series: [],
                 pedidoInicialCompleto: false,
                 paginaSiguiente: "",
                 busqueda:'',
@@ -14,13 +13,13 @@ export default class Peliculas extends Component {
             }   
     }
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=es-ES&page=1`)
+        fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=es-ES&page=1`)
         .then((res) => res.json())
         .then((data) =>{
-            const nextUrl = data.page < data.total_pages ? `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=es-ES&page=${data.page + 1}` : null
+            const nextUrl = data.page < data.total_pages ? `https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=es-ES&page=${data.page + 1}` : null
             console.log(data)
             this.setState({
-            peliculas: data.results,
+            series: data.results,
             pedidoInicialCompleto: true,
             paginaSiguiente: nextUrl,
             backup:data.results
@@ -32,12 +31,11 @@ export default class Peliculas extends Component {
         fetch(this.state.paginaSiguiente)
         .then((res)=> res.json())
         .then((data)=> {
-            const nextUrl = data.page < data.total_pages ? `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=es-ES&page=${data.page + 1}` : null            
+            const nextUrl = data.page < data.total_pages ? `https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=es-ES&page=${data.page + 1}` : null
             this.setState({
-                peliculas: this.state.peliculas.concat(data.results),
+                series: this.state.series.concat(data.results),
                 paginaSiguiente: nextUrl,
                 backup: this.state.backup.concat(data.results),
-
             },
         )
         })
@@ -47,24 +45,24 @@ export default class Peliculas extends Component {
 })
     }
      eliminarPersonaje(id){
-        const personajesFiltrados = this.state.peliculas.filter((p) => p.id !== id);
+        const personajesFiltrados = this.state.series.filter((p) => p.id !== id);
         this.setState({
-            peliculas: personajesFiltrados
+            series: personajesFiltrados
         })
 
     }
     filtroPersonajes(texto){
         const filtrado = this.state.backup.filter((elm) => elm.name.toLowerCase().includes(texto.toLowerCase()));
         this.setState({
-            peliculas: filtrado,
+            series: filtrado,
         })
     }
   render() {
     return (
       <React.Fragment>
-            <h2>Popular movies</h2>
+            <h2>Popular series</h2>
             {this.state.pedidoInicialCompleto ?
-                <SRM peliculas={this.state.peliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <h2>Cargando ...</h2>
+                <SeriesPadre series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <h2>Cargando ...</h2>
             }
             <button className="btn" onClick={()=>this.irPaginaSiguiente()}>Más personajes</button>
         </React.Fragment>

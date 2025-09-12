@@ -7,6 +7,7 @@ import ResultadosBusqueda from "./screens/ResultadosBusqueda/ResultadosBusqueda"
 import Movie from "./screens/Movie/Movie";
 import Serie from "./screens/Serie/Serie";
 import Peliculas from "./screens/Peliculas/Peliculas";
+import Series from "./screens/Series/Series";
 import Error404 from "./screens/Error/Error404";
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" render={() => <Redirect to="/home" />} />
         <Route path='/results/:busuqeda' component={ResultadosBusqueda}/>
         <Route exact path='/movies' component={Peliculas}/>
+        <Route exact path='/series' component={Series}/>
         <Route exact path="/movie/:id" component={Movie}/>
         <Route exact path="/serie/:id" component={Serie}/>
         <Route component={Error404}/>
