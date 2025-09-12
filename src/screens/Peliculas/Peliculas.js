@@ -31,6 +31,7 @@ export default class Peliculas extends Component {
         fetch(this.state.paginaSiguiente)
         .then((res)=> res.json())
         .then((data)=> {
+            
             this.setState({
                 peliculas: this.state.peliculas.concat(data.results),
                 paginaSiguiente: null,
@@ -60,7 +61,7 @@ export default class Peliculas extends Component {
   render() {
     return (
       <React.Fragment>
-            <h2 className="alert alert-primary">Popular movies</h2>
+            <h2>Popular movies</h2>
             {this.state.pedidoInicialCompleto ?
                 <SRM peliculas={this.state.peliculas} onDelete={(id) => this.eliminarPersonaje(id)}/> : <h2>Cargando ...</h2>
             }
