@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import "./styles.css";
 import { Link } from 'react-router-dom';
 class Serie extends Component {
   constructor(props){
@@ -38,11 +39,11 @@ class Serie extends Component {
         <p className="card-text">{this.props.description}</p>
       )}
 
-      <Link to={`/serie/${this.props.id}`} className="btn btn-primary">Ver más</Link>
+      <Link to={`/serie/${this.props.id}`} className="btn btn-primary ver-mas">Ver más</Link>
 
       <button
         type="button"
-        className="btn alert-primary"
+        className="btn alert-primary fav"
         onClick={this.toggleSeleccion}
         aria-label="Marcar como favorito"> ♥️
       </button>
