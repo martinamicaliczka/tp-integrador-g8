@@ -13,7 +13,7 @@ export default class Error404 extends Component {
                         <p className="nf-404__text">La página que buscás no existe o fue movida. Probá volver al inicio o explorar nuestro catálogo.</p>
                     <hr className="nf-404__divider" />
                     <Link to="/" className="nf-404__btn nf-404__btn--primary">Volver al inicio</Link>
-                    <Link to="/movies/popular" className="nf-404__btn">Explorar películas</Link>
+                    <Link to="/movies" className="nf-404__btn">Explorar películas</Link>
                 </div>
             </div>
         )
