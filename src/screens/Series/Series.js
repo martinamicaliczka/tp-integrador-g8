@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { api_key } from "../../utils/ApiKey";
+import "./styles.css"
 import SeriesPadre from '../../components/SeriesPadre/SeriesPadre';
 export default class Series extends Component {
     constructor(props){
@@ -64,7 +65,7 @@ export default class Series extends Component {
             {this.state.pedidoInicialCompleto ?
                 <SeriesPadre series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <h2>Cargando ...</h2>
             }
-            <button className="btn" onClick={()=>this.irPaginaSiguiente()}>Más personajes</button>
+            <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Más personajes</button>
         </React.Fragment>
     )
   }

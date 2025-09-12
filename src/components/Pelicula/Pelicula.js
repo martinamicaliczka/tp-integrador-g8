@@ -38,11 +38,11 @@ class Pelicula extends Component {
         <p className="card-text">{this.props.description}</p>
       )}
 
-      <Link to={`/movie/${this.props.id}`} className="btn btn-primary">Ver más</Link>
+      <Link to={`/movie/${this.props.id}`} className="btn btn-primary ver-mas">Ver más</Link>
 
       <button
         type="button"
-        className="btn alert-primary"
+        className="btn alert-primary fav"
         onClick={this.toggleSeleccion}
         aria-label="Marcar como favorito"> ♥️
       </button>

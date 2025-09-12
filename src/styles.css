@@ -110,6 +110,9 @@ nav {
     width: 15%;
 }
 
+.masPersonajes{
+    color:#990000;
+}
 
 @media(min-width: 765px){
     nav {
