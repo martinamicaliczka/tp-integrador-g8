@@ -65,7 +65,7 @@ export default class Peliculas extends Component {
             <h2>Popular movies</h2>
             <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/>
             {this.state.pedidoInicialCompleto ?
-                <SRM peliculas={this.state.peliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <h2>Cargando ...</h2>
+                <SRM peliculas={this.state.peliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
             }
             <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más peliculas</button>
         </React.Fragment>

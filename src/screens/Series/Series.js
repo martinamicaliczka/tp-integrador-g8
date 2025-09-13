@@ -65,7 +65,7 @@ export default class Series extends Component {
             <h2>Popular series</h2>
             <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/>
             {this.state.pedidoInicialCompleto ?
-                <SeriesPadre series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <h2>Cargando ...</h2>
+                <SeriesPadre series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
             }
             <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Más personajes</button>
         </React.Fragment>

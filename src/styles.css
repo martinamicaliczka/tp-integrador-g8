@@ -113,7 +113,10 @@ nav {
 .masPersonajes{
     color:#990000;
 }
-
+.gif{
+    width: min-content;
+    align-self: center;
+}
 @media(min-width: 765px){
     nav {
         grid-template-columns: 4fr 3fr;

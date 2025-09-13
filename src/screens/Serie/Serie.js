@@ -25,7 +25,7 @@ export default class Serie extends Component {
     }
     render() {
         if (!this.state.serie) {
-            return <div>Cargando Serie...</div>
+            return <img  className='gif' src='./Gifs/Cargando.gif' />
         }
         return (
             <DetalleSerie serie={this.state.serie} />

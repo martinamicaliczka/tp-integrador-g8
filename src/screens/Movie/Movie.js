@@ -25,7 +25,7 @@ export default class Movie extends Component {
         }
     render() {
         if (!this.state.movie) {
-            return <div>Cargando Pelicula...</div>
+            return <img  className='gif' src='./Gifs/Cargando.gif' />
         }
         return (
             <DetalleMovie movie={this.state.movie} />
