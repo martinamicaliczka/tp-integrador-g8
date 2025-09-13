@@ -67,7 +67,7 @@ export default class Series extends Component {
             {this.state.pedidoInicialCompleto ?
                 <SeriesPadre series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
             }
-            <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Más personajes</button>
+            {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más series</button> : ''}
         </React.Fragment>
     )
   }

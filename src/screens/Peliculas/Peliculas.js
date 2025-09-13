@@ -67,7 +67,7 @@ export default class Peliculas extends Component {
             {this.state.pedidoInicialCompleto ?
                 <SRM peliculas={this.state.peliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
             }
-            <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más peliculas</button>
+            {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más peliculas</button> : ''}
         </React.Fragment>
     )
   }
