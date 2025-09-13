@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { api_key } from "../../utils/ApiKey";
 import SRM from '../../components/SR&M/SR&M'
+import FormularioFitrado from '../../components/FormularioFiltrado/FormularioFitrado';
 
 export default class Peliculas extends Component {
     constructor(props){
@@ -51,10 +52,9 @@ export default class Peliculas extends Component {
         this.setState({
             peliculas: personajesFiltrados
         })
-
     }
     filtroPersonajes(texto){
-        const filtrado = this.state.backup.filter((elm) => elm.name.toLowerCase().includes(texto.toLowerCase()));
+        const filtrado = this.state.backup.filter((elm) => elm.title.toLowerCase().includes(texto.toLowerCase()));
         this.setState({
             peliculas: filtrado,
         })
@@ -63,10 +63,11 @@ export default class Peliculas extends Component {
     return (
       <React.Fragment>
             <h2>Popular movies</h2>
+            <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/>
             {this.state.pedidoInicialCompleto ?
                 <SRM peliculas={this.state.peliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <h2>Cargando ...</h2>
             }
-            <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Más personajes</button>
+            <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más peliculas</button>
         </React.Fragment>
     )
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { api_key } from "../../utils/ApiKey";
 import "./styles.css"
+import FormularioFitrado from '../../components/FormularioFiltrado/FormularioFitrado';
 import SeriesPadre from '../../components/SeriesPadre/SeriesPadre';
 export default class Series extends Component {
     constructor(props){
@@ -62,6 +63,7 @@ export default class Series extends Component {
     return (
       <React.Fragment>
             <h2>Popular series</h2>
+            <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/>
             {this.state.pedidoInicialCompleto ?
                 <SeriesPadre series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <h2>Cargando ...</h2>
             }

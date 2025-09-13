@@ -1,0 +1,28 @@
+import React, { Component } from 'react'
+
+export default class FormularioFitrado extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            busqueda:""
+        }
+    }
+    controlarForm(e){
+        e.preventDefault()
+        this.props.history.push(`/resultadoFiltro/${this.state.busqueda}`)
+    }
+     controlarInput(e){
+        this.setState({
+            busqueda: e.target.value.toLowerCase()
+        }, () => this.props.filtroPersonajes(this.state.busqueda))
+    }
+    render() {
+        return (
+        <div>
+            <form onSubmit={(e) => this.controlarForm(e)} Filtrar ={(texto) => this.filtroPersonajes(texto)}>
+                <input type="text" onChange={(e) => this.controlarInput(e)} placeholder='Filtrar' />
+            </form>
+        </div>
+    )
+  }
+}
