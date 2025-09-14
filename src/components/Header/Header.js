@@ -4,7 +4,9 @@ import FormularioBusqueda from '../FormularioBusqueda/FormularioBusqueda';
 function Header() { 
     return (
     <div className="header-container">
-        <h1>GIRLFLIX</h1>
+        <Link to='/home' className='girl-flix'> 
+            <h1>GIRLFLIX</h1>
+        </Link>
         <nav className="nav-container"> 
         <ul className="nav nav-tabs my-4"> 
             <li className="nav-item"> 
