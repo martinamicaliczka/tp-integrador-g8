@@ -19,7 +19,7 @@ export default class FormularioFitrado extends Component {
     render() {
         return (
         <div>
-            <form onSubmit={(e) => this.controlarForm(e)} Filtrar ={(texto) => this.filtroPersonajes(texto)}>
+            <form onSubmit={(e) => this.controlarForm(e)} >
                 <input type="text" onChange={(e) => this.controlarInput(e)} placeholder='Filtrar' />
             </form>
         </div>

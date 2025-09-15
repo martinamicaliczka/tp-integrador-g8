@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter as Switch, Route, Redirect } from 'react-router-dom';
+import {  Switch, Route } from 'react-router-dom';
 import "./styles.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -17,10 +17,10 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path='/results/:busuqeda' component={ResultadosBusqueda}/>
-        <Route exact path='/movies' component={Peliculas}/>
-        <Route exact path='/series' component={Series}/>
-        <Route exact path="/movie/:id" component={Movie}/>
-        <Route exact path="/serie/:id" component={Serie}/>
+        <Route  path='/movies' component={Peliculas}/>
+        <Route  path='/series' component={Series}/>
+        <Route  path="/movie/:id" component={Movie}/>
+        <Route  path="/serie/:id" component={Serie}/>
         <Route component={Error404}/>
       </Switch>
       <Footer/>

@@ -5,11 +5,33 @@ class Pelicula extends Component {
   constructor(props){
     super(props)
     this.state={
-      verMas: false
+      esFav: false
     }
   }
+  agregarFavorito(id){
+    let storage= localStorage.getItem('favoritosPeliculas');
+    if (!storage) {
+      localStorage.setItem('favoritosPeliculas', JSON.stringify([id]))
+      return
+    } 
+    let favsRecuperados = JSON.parse(storage);
+      favsRecuperados.push(id);
+      localStorage.setItem('favoritosPeliculas', JSON.stringify(favsRecuperados));
+
+    this.setState({
+      esFav: true
+    })
+  }
+  eliminarFavoritos(id){
+    let storage= localStorage.getItem('favoritosPeliculas');
+    let favsRecuperados = JSON.parse(storage);
+    favsRecuperados = favsRecuperados.filter(favId => favId !== id);
+    localStorage.setItem('favoritosPeliculas', JSON.stringify(favsRecuperados))
+    this.setState({
+      esFav: false
+    })
+  }
   render(){
-    let favsToString = JSON.stringify(this.props);
     return (
       <article
         className="single-card-movie"
@@ -28,12 +50,18 @@ class Pelicula extends Component {
 
       <Link to={`/movie/${this.props.id}`} className="btn btn-primary ver-mas">Ver más</Link>
 
-      <button
+      {!this.state.esFav ? <button
         type="button"
+        onClick={() => this.agregarFavorito(this.props.id)}
         className="btn alert-primary fav"
-        onClick={this.toggleSeleccion}
         aria-label="Marcar como favorito"> +
-      </button>
+      </button> : <button type="button"
+        onClick={() => this.eliminarFavoritos(this.props.id)}
+        className="btn alert-primary fav"
+        aria-label="Eliminar como favorito"> ✓
+        
+      </button>}
+      
     </div>
   </article>
 );

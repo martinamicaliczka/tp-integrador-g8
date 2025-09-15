@@ -4,17 +4,34 @@ export default class DetalleSerie extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            agregarAFavoritos: false
+            esfav: false
         }
     }
-    toggleFavoritos() {
+    agregarFavorito(id){
+    let storage= localStorage.getItem('favoritosSeries');
+    if (!storage) {
+        localStorage.setItem('favoritosSeries', JSON.stringify([id]))
+        return
+        } 
+        let favsRecuperados = JSON.parse(storage);
+        favsRecuperados.push(id);
+        localStorage.setItem('favoritosSeries', JSON.stringify(favsRecuperados));
+
         this.setState({
-            agregarAFavoritos: !this.state.agregarAFavoritos
+        esFav: true
+        })
+    }
+    eliminarFavoritos(id){
+        let storage= localStorage.getItem('favoritosSeries');
+        let favsRecuperados = JSON.parse(storage);
+        favsRecuperados = favsRecuperados.filter(favId => favId !== id);
+        localStorage.setItem('favoritosSeries', JSON.stringify(favsRecuperados))
+        this.setState({
+        esFav: false
         })
     }
     render() {
         const {serie} = this.props
-        const {agregarAFavoritos} = this.state
         return (
             <div className="detail">
                 <h2 className="detail-title">{serie.name}</h2>
@@ -37,11 +54,13 @@ export default class DetalleSerie extends Component {
                                 )}
                             </ul>
                         </p>
-                        <button
-                            className={`fav-btn ${agregarAFavoritos ? "activo" : ""}`}
-                            onClick={() => this.toggleFavoritos()}>
-                            {agregarAFavoritos ? "Quitar de favoritos" : "Agregar a favoritos"}
-                        </button>
+                        {!this.state.esFav ?<button 
+                            className={`fav-btn`} 
+                            onClick={() => this.agregarFavorito(serie.id)}> Agregar a favoritos
+                        </button> : <button 
+                            className={`fav-btn activo`} 
+                            onClick={() => this.eliminarFavoritos(serie.id)}> Quitar de favoritos 
+                        </button>}
                     </section>
                 </section>
             </div>
