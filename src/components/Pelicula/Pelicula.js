@@ -53,7 +53,7 @@ class Pelicula extends Component {
         {this.props.description && (
           <p className="card-text">{this.props.description}</p>
         )}
-
+    <div className='botones'> 
       <Link to={`/movie/${this.props.id}`} className="btn btn-primary ver-mas">Ver más</Link>
 
       {!this.state.esFav ? <button
@@ -67,7 +67,7 @@ class Pelicula extends Component {
         aria-label="Eliminar como favorito"> ✓
         
       </button>}
-      
+      </div>
     </div>
   </article>
 );
