@@ -7,7 +7,7 @@ function SeriesPadre(props) {
   <section className="row cards" id="movies">
       {
       props.haySeries === null ?
-      <h1>Cargando...</h1> :
+      <img  className='gif' src='./Gifs/Cargando.gif' /> :
       props.haySeries ?
       props.series.map((p) => (
           <Serie
