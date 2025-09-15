@@ -7,7 +7,7 @@ function PeliculasPadre(props) {
   <section className="row cards" id="movies">
       {
       props.hayPeliculas === null ?
-      <h1>Cargando...</h1> :
+      <img  className='gif' src='./Gifs/Cargando.gif' /> :
       props.hayPeliculas ?
       props.peliculas.map((p) => (
           <Pelicula

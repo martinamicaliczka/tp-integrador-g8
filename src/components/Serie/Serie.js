@@ -54,8 +54,8 @@ class Serie extends Component {
       {this.props.description && (
         <p className="card-text">{this.props.description}</p>
       )}
-
-      <Link to={`/serie/${this.props.id}`} className="btn btn-primary ver-mas">Ver más</Link>
+      <div className='botones'> 
+        <Link to={`/serie/${this.props.id}`} className="btn btn-primary ver-mas">Ver más</Link>
 
       {!this.state.esFav ? <button
         type="button"
@@ -67,6 +67,8 @@ class Serie extends Component {
         className="btn alert-primary fav"
         aria-label="Eliminar como favorito"> ✓
       </button>}
+      </div>
+      
     </div>
   </article>
 );
