@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
+import './styles.css'
 class Pelicula extends Component {
   constructor(props){
     super(props)
@@ -33,7 +34,7 @@ class Pelicula extends Component {
         type="button"
         className="btn alert-primary fav"
         onClick={this.toggleSeleccion}
-        aria-label="Marcar como favorito"> ♥️
+        aria-label="Marcar como favorito"> +
       </button>
     </div>
   </article>
