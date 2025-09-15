@@ -1,6 +1,5 @@
 import React from "react"
-import {  Switch, Route } from 'react-router-dom';
-import "./styles.css";
+import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ResultadosBusqueda from "./screens/ResultadosBusqueda/ResultadosBusqueda";

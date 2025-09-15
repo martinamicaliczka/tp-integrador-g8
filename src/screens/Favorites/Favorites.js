@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PeliculasPadre from '../../components/PeliculasPadre/PeliculasPadre'
 import SeriesPadre from '../../components/SeriesPadre/SeriesPadre'
 import { api_key } from '../../utils/ApiKey'
+import "./styles.css"
 export default class Favorites extends Component {
     constructor(props) {
         super(props)
@@ -59,10 +60,10 @@ export default class Favorites extends Component {
     render() {
         return (
             <React.Fragment>
-            <h1>Mi lista</h1>
-            <h2 className="alert alert-primary">Películas favoritas</h2>
+            <h1 className="mi-lista">Mi lista</h1>
+            <h2>Películas favoritas</h2>
             <PeliculasPadre hayPeliculas={this.state.hayPeliculas} peliculas={this.state.favoritosPeliculas} />
-            <h2 className="alert alert-primary">Series favoritas</h2>
+            <h2>Series favoritas</h2>
             <SeriesPadre haySeries={this.state.haySeries} series={this.state.favoritosSeries} />
         </React.Fragment>
         )
