@@ -44,14 +44,13 @@ export default class Series extends Component {
         .catch((err) => {
         console.log(err);
         this.setState({ pedidoInicialCompleto: true }); 
-})
+        })
     }
-     eliminarPersonaje(id){
+    eliminarPersonaje(id){
         const personajesFiltrados = this.state.series.filter((p) => p.id !== id);
         this.setState({
             series: personajesFiltrados
         })
-
     }
     filtroPersonajes(texto){
         const filtrado = this.state.backup.filter((elm) => elm.name.toLowerCase().includes(texto.toLowerCase()));
@@ -59,16 +58,16 @@ export default class Series extends Component {
             series: filtrado,
         })
     }
-  render() {
-    return (
-      <React.Fragment>
-            <h2>Popular series</h2>
-            <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/>
-            {this.state.pedidoInicialCompleto ?
-                <SeriesPadre series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
-            }
-            {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más series</button> : ''}
-        </React.Fragment>
-    )
-  }
+    render() {
+        return (
+            <React.Fragment>
+                <h2>Popular series</h2>
+                <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/>
+                    {this.state.pedidoInicialCompleto ?
+                        <SeriesPadre series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
+                    }
+                    {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más series</button> : ''}
+            </React.Fragment>
+        )
+    }
 }
