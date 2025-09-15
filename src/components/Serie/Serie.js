@@ -10,6 +10,7 @@ class Serie extends Component {
       seleccionada: false
     }
   }
+  
   render(){
     return (
   <article
