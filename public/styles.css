@@ -84,6 +84,8 @@ nav {
     width: 15%;
 }
 
-.header{
-  position: sticky;
+.header-container{
+    position: sticky;
+    top: 0;
+    background-color: #141414;
 }
