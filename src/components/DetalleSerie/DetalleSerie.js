@@ -4,22 +4,28 @@ export default class DetalleSerie extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            esfav: false
+            esFav: false
         }
+    }
+    componentDidMount(){
+    let storage= localStorage.getItem('favoritosSeries');
+    let favsRecuperados = JSON.parse(storage);
+    if (favsRecuperados != null) {
+        favsRecuperados.includes(this.props.serie.id) ? this.setState({esFav: true }) : this.setState({ esFav: false });
+    } 
     }
     agregarFavorito(id){
     let storage= localStorage.getItem('favoritosSeries');
     if (!storage) {
         localStorage.setItem('favoritosSeries', JSON.stringify([id]))
-        return
-        } 
+    } else {
         let favsRecuperados = JSON.parse(storage);
         favsRecuperados.push(id);
         localStorage.setItem('favoritosSeries', JSON.stringify(favsRecuperados));
-
-        this.setState({
-        esFav: true
-        })
+    }
+    this.setState({
+    esFav: true
+    })
     }
     eliminarFavoritos(id){
         let storage= localStorage.getItem('favoritosSeries');

@@ -8,6 +8,13 @@ class DetalleMovie extends Component {
             esFav: false
         }
     }  
+    componentDidMount(){
+    let storage= localStorage.getItem('favoritosPeliculas');
+    let favsRecuperados = JSON.parse(storage);
+    if (favsRecuperados != null) {
+        favsRecuperados.includes(this.props.movie.id) ? this.setState({esFav: true }) : this.setState({ esFav: false });
+    } 
+    }
     agregarFavorito(id){
     let storage= localStorage.getItem('favoritosPeliculas');
     if (!storage) {

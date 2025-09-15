@@ -8,20 +8,26 @@ class Serie extends Component {
       esFav: false
     }
   }
+  componentDidMount(){
+    let storage= localStorage.getItem('favoritosSeries');
+    let favsRecuperados = JSON.parse(storage);
+    if (favsRecuperados != null) {
+        favsRecuperados.includes(this.props.id) ? this.setState({esFav: true }) : this.setState({ esFav: false });
+    } 
+    }
   agregarFavorito(id){
     let storage= localStorage.getItem('favoritosSeries');
     if (!storage) {
-      localStorage.setItem('favoritosSeries', JSON.stringify([id]))
-      return
-    } 
-    let favsRecuperados = JSON.parse(storage);
-      favsRecuperados.push(id);
-      localStorage.setItem('favoritosSeries', JSON.stringify(favsRecuperados));
-
+        localStorage.setItem('favoritosSeries', JSON.stringify([id]))
+    } else {
+        let favsRecuperados = JSON.parse(storage);
+        favsRecuperados.push(id);
+        localStorage.setItem('favoritosSeries', JSON.stringify(favsRecuperados));
+    }
     this.setState({
-      esFav: true
+    esFav: true
     })
-  }
+    }
   eliminarFavoritos(id){
     let storage= localStorage.getItem('favoritosSeries');
     let favsRecuperados = JSON.parse(storage);
