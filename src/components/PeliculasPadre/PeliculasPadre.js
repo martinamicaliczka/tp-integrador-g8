@@ -1,7 +1,7 @@
 import React from "react";
 import Pelicula from "../Pelicula/Pelicula";
 
-function SRM(props) {
+function PeliculasPadre(props) {
     const maximo = 160;
   return (
   <section className="row cards" id="movies">
@@ -20,4 +20,4 @@ function SRM(props) {
   );
 }
 
-export default SRM;
+export default PeliculasPadre;

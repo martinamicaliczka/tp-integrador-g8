@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { api_key } from "../../utils/ApiKey";
-import SRM from '../../components/SR&M/SR&M'
+import PeliculasPadre from '../../components/PeliculasPadre/PeliculasPadre';
 import FormularioFitrado from '../../components/FormularioFiltrado/FormularioFitrado';
 
 export default class Peliculas extends Component {
@@ -59,16 +59,16 @@ export default class Peliculas extends Component {
             peliculas: filtrado,
         })
     }
-  render() {
-    return (
-      <React.Fragment>
-            <h2>Popular movies</h2>
-            <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/>
-            {this.state.pedidoInicialCompleto ?
-                <SRM peliculas={this.state.peliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
-            }
-            {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más peliculas</button> : ''}
-        </React.Fragment>
-    )
-  }
+    render() {
+        return (
+            <React.Fragment>
+                    <h2>Popular movies</h2>
+                    <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/>
+                    {this.state.pedidoInicialCompleto ?
+                        <PeliculasPadre peliculas={this.state.peliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
+                    }
+                    {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más peliculas</button> : ''}
+                </React.Fragment>
+        )
+    }
 }

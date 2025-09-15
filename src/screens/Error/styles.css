@@ -76,6 +76,9 @@
     border: 0;
 }
 @media (max-width: 480px) {
-    .nf-404__card { padding: 20px; }
+    .nf-404__card { 
+        padding: 20px; 
+        width: 84vw;
+    }
     .nf-404__text { line-height: 1.6; }
 }

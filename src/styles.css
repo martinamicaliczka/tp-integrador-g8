@@ -61,9 +61,9 @@ nav {
     line-height: 1.5;
 }
 .btn-success {
-  background-color: #990000;
-  border-color: #cc0000;
-  color: white;
+    background-color: #990000;
+    border-color: #cc0000;
+    color: white;
 }
 .cards {
     padding: 0.75rem 1.25rem;

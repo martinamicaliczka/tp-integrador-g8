@@ -9,17 +9,6 @@ class Pelicula extends Component {
       seleccionada: false
     }
   }
-
-  toggleSeleccion = () => {
-    if (!this.props.esRick) return;
-    this.setState(prev => ({ seleccionada: !prev.seleccionada }));
-  };
-  Cambiar() {
-    this.setState({
-      verMas: !this.state.verMas,
-      textoBoton: this.state.verMas ? "Ver más" : "Ver menos"
-    });
-  }
   render(){
     return (
   <article
