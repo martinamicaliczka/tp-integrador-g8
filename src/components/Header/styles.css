@@ -1,6 +1,9 @@
 .nav-tabs {
   border-bottom: 1px solid #ccc;
 }
+.nav-link:hover {
+  border: none;
+}
 
 .my-4 {
   margin-top: 1.5rem;
@@ -47,4 +50,10 @@
 .btn-success:hover{
     background-color: #df0202;
     border-color: #cc0000;
+}
+.girl-flix:hover{
+  text-decoration: none;
+}
+.nav-color:hover{
+  color: #990000;
 }

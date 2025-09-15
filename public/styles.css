@@ -83,3 +83,7 @@ nav {
 .all-movies .single-card-movie {
     width: 15%;
 }
+
+.header{
+  position: sticky;
+}

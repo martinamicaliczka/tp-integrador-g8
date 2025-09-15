@@ -9,12 +9,13 @@ import Serie from "./screens/Serie/Serie";
 import Peliculas from "./screens/Peliculas/Peliculas";
 import Series from "./screens/Series/Series";
 import Error404 from "./screens/Error/Error404";
+import Home from "./screens/Home/Home";
 function App() {
   return (
     <React.Fragment>
       <Header/>
       <Switch>
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Route exact path="/" component={Home} />
         <Route path='/results/:busuqeda' component={ResultadosBusqueda}/>
         <Route exact path='/movies' component={Peliculas}/>
         <Route exact path='/series' component={Series}/>
