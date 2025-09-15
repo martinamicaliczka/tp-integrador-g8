@@ -64,7 +64,7 @@ export default class Peliculas extends Component {
         return (
             <React.Fragment>
                     <h2>Popular movies</h2>
-                    <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/>
+                    {this.state.pedidoInicialCompleto ? <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/> : ''}
                     {this.state.pedidoInicialCompleto ?
                         <PeliculasPadre peliculas={this.state.peliculas} hayPeliculas={this.state.hayPeliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
                     }

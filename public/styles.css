@@ -144,4 +144,7 @@ nav {
         gap: 8px;
         justify-content: flex-end; 
     }
+    .gif{
+        width: 500px;
+    }
 }
