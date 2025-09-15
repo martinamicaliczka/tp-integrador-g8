@@ -11,7 +11,8 @@ export default class Peliculas extends Component {
                 pedidoInicialCompleto: false,
                 paginaSiguiente: "",
                 busqueda:'',
-                backup: []
+                backup: [],
+                hayPeliculas: true
             }   
     }
     componentDidMount(){
@@ -65,7 +66,7 @@ export default class Peliculas extends Component {
                     <h2>Popular movies</h2>
                     <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/>
                     {this.state.pedidoInicialCompleto ?
-                        <PeliculasPadre peliculas={this.state.peliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
+                        <PeliculasPadre peliculas={this.state.peliculas} hayPeliculas={this.state.hayPeliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
                     }
                     {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más peliculas</button> : ''}
                 </React.Fragment>

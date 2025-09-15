@@ -11,7 +11,8 @@ export default class Series extends Component {
                 pedidoInicialCompleto: false,
                 paginaSiguiente: "",
                 busqueda:'',
-                backup: []
+                backup: [],
+                haySeries: true
             }   
     }
     componentDidMount(){
@@ -64,7 +65,7 @@ export default class Series extends Component {
                 <h2>Popular series</h2>
                 <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/>
                     {this.state.pedidoInicialCompleto ?
-                        <SeriesPadre series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
+                        <SeriesPadre haySeries={this.state.haySeries} series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
                     }
                     {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más series</button> : ''}
             </React.Fragment>
