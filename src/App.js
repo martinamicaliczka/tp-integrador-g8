@@ -16,13 +16,13 @@ function App() {
       <Header/>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path='/results/:busuqeda' component={ResultadosBusqueda}/>
-        <Route  path='/movies' component={Peliculas}/>
-        <Route  path='/series' component={Series}/>
-        <Route  path="/movie/:id" component={Movie}/>
-        <Route  path="/serie/:id" component={Serie}/>
-        <Route  path="/favorites" component={Favorites}/>
-        <Route component={Error404}/>
+        <Route path='/results/:busqueda' component={ResultadosBusqueda}/>
+        <Route path='/movies' component={Peliculas}/>
+        <Route path='/series' component={Series}/>
+        <Route path="/movie/:id" component={Movie}/>
+        <Route path="/serie/:id" component={Serie}/>
+        <Route path="/favorites" component={Favorites}/>
+        <Route path="*" component={Error404}/>
       </Switch>
       <Footer/>
     </React.Fragment>
