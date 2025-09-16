@@ -19,7 +19,7 @@ h1, h2, h3 {
 }
 nav {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     background-color: #eee;
     border-radius: 4px;
     margin-bottom: 20px;
@@ -146,5 +146,8 @@ nav {
     }
     .gif{
         width: 500px;
+    }
+    nav{
+        grid-template-columns: 1fr;
     }
 }
