@@ -15,7 +15,7 @@ function App() {
       <Header/>
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/home" />} />
-        <Route path='/results/:busuqeda' component={ResultadosBusqueda}/>
+        <Route path='/results/:busqueda' component={ResultadosBusqueda}/>
         <Route exact path='/movies' component={Peliculas}/>
         <Route exact path='/series' component={Series}/>
         <Route exact path="/movie/:id" component={Movie}/>
