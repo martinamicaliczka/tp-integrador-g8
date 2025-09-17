@@ -1,11 +1,29 @@
+html, body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    background-color: #141414;
+    color: #ffffff;
+    margin: 0;
+    padding: 10px;
+    height: 100%;
+}
+#root {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+h1, h2, h3 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #bb0000;
+}
 nav {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     background-color: #eee;
     border-radius: 4px;
     margin-bottom: 20px;
 }
-
 .nav {
     margin: 0 !important;
 }
@@ -48,16 +66,18 @@ nav {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 }
 .cardBody {
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 .single-card-people {
     width: 19%;
 }
 .single-card-movie {
     width: 24%;
+    margin-bottom: 10px;
 }
 .single-card-playing {
     width: 15%;
@@ -80,7 +100,55 @@ nav {
     height: 100px;
     overflow: hidden;
 }
-
 .all-movies .single-card-movie {
     width: 15%;
+}
+.header-container{
+    position: sticky;
+    top: 0;
+    background-color: #141414;
+    z-index: 1000;
+}
+.masPersonajes{
+    color:#990000;
+}
+.gif{
+    width: min-content;
+    align-self: center;
+}
+@media (max-width: 480px){
+    .single-card-movie {
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        margin-bottom: 12px;
+    }
+    .girl-flix{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .nav .nav-tabs .my-4 {
+        flex-direction: column;
+    }
+    .cards{
+        display: flex;
+        flex-direction: column;
+    }
+    .ver-mas{
+        align-self: flex-end;
+    }
+    .botones{
+        margin-top: auto;
+        align-self: flex-end;
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end; 
+    }
+    .gif{
+        width: 500px;
+    }
+    nav{
+        grid-template-columns: 1fr;
+    }
 }

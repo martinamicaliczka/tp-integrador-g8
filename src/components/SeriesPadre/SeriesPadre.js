@@ -5,7 +5,11 @@ function SeriesPadre(props) {
     const maximo = 160;
   return (
   <section className="row cards" id="movies">
-      {props.series.map((p) => (
+      {
+      props.haySeries === null ?
+      <img  className='gif' src='./Gifs/Cargando.gif' /> :
+      props.haySeries ?
+      props.series.map((p) => (
           <Serie
             id={p.id}
             posterPath={p.poster_path}
@@ -14,8 +18,12 @@ function SeriesPadre(props) {
             origin={p.origin_country}
             extra={`Estreno: ${p.first_air_date}`}
             onDelete={props.onDelete}
+            tipo={"tv"}
           />
-      ))}
+      ))
+      :
+      <p>No hay series favoritas</p>
+    }
     </section>
   );
 }

@@ -1,6 +1,9 @@
 .nav-tabs {
   border-bottom: 1px solid #ccc;
 }
+.nav-link:hover {
+  border: none;
+}
 
 .my-4 {
   margin-top: 1.5rem;
@@ -47,4 +50,28 @@
 .btn-success:hover{
     background-color: #df0202;
     border-color: #cc0000;
+}
+.girl-flix:hover{
+  text-decoration: none;
+}
+.nav-color:hover{
+  color: #990000;
+}
+.nav-icon{
+  width: 20px;
+}
+.nav-celu{
+  display: none;
+}
+
+@media (max-width: 480px){
+  .nav-celu{
+    display: block;
+  }
+  .nav-compu{
+    display: none;
+  }
+  .nav-tabs{
+    justify-content: space-around;
+  }
 }

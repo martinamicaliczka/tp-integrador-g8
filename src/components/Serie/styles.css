@@ -1,6 +1,12 @@
 .ver-mas{
-    background-color: 990000;
-    border-color: 990000;
+    background-color: #990000;
+    border-color: #990000;
+    color: white;
+    margin-right: 10px;
+}
+.ver-mas:hover{
+    background-color: white;
+    color: #990000;
 }
 .fav{
     background-color: whitesmoke;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { api_key } from "../../utils/ApiKey";
 import "./styles.css"
+import FormularioFitrado from '../../components/FormularioFiltrado/FormularioFitrado';
 import SeriesPadre from '../../components/SeriesPadre/SeriesPadre';
 export default class Series extends Component {
     constructor(props){
@@ -10,7 +11,8 @@ export default class Series extends Component {
                 pedidoInicialCompleto: false,
                 paginaSiguiente: "",
                 busqueda:'',
-                backup: []
+                backup: [],
+                haySeries: true
             }   
     }
     componentDidMount(){
@@ -43,14 +45,13 @@ export default class Series extends Component {
         .catch((err) => {
         console.log(err);
         this.setState({ pedidoInicialCompleto: true }); 
-})
+        })
     }
-     eliminarPersonaje(id){
+    eliminarPersonaje(id){
         const personajesFiltrados = this.state.series.filter((p) => p.id !== id);
         this.setState({
             series: personajesFiltrados
         })
-
     }
     filtroPersonajes(texto){
         const filtrado = this.state.backup.filter((elm) => elm.name.toLowerCase().includes(texto.toLowerCase()));
@@ -58,15 +59,16 @@ export default class Series extends Component {
             series: filtrado,
         })
     }
-  render() {
-    return (
-      <React.Fragment>
-            <h2>Popular series</h2>
-            {this.state.pedidoInicialCompleto ?
-                <SeriesPadre series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <h2>Cargando ...</h2>
-            }
-            <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Más personajes</button>
-        </React.Fragment>
-    )
-  }
+    render() {
+        return (
+            <React.Fragment>
+                <h2>Popular series</h2>
+                    {this.state.pedidoInicialCompleto ? <FormularioFitrado filtroPersonajes={(texto) => this.filtroPersonajes(texto)}/> : ''}
+                    {this.state.pedidoInicialCompleto ?
+                        <SeriesPadre haySeries={this.state.haySeries} series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
+                    }
+                    {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más series</button> : ''}
+            </React.Fragment>
+        )
+    }
 }

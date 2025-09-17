@@ -1,11 +1,15 @@
 import React from "react";
 import Pelicula from "../Pelicula/Pelicula";
 
-function SRM(props) {
+function PeliculasPadre(props) {
     const maximo = 160;
   return (
   <section className="row cards" id="movies">
-      {props.peliculas.map((p) => (
+      {
+      props.hayPeliculas === null ?
+      <img  className='gif' src='./Gifs/Cargando.gif' /> :
+      props.hayPeliculas ?
+      props.peliculas.map((p) => (
           <Pelicula
             id={p.id}
             posterPath={p.poster_path}
@@ -15,9 +19,12 @@ function SRM(props) {
             extra={`Estreno: ${p.release_date}`}
             onDelete={props.onDelete}
           />
-      ))}
+      ))
+      :
+      <p>No hay peliculas favoritas</p>
+    }
     </section>
   );
 }
 
-export default SRM;
+export default PeliculasPadre;
