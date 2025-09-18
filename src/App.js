@@ -9,6 +9,7 @@ import Peliculas from "./screens/Peliculas/Peliculas";
 import Series from "./screens/Series/Series";
 import Error404 from "./screens/Error/Error404";
 import Favorites from "./screens/Favorites/Favorites";
+import Home from "./screens/Home/Home";
 function App() {
   return (
     <React.Fragment>
@@ -20,8 +21,10 @@ function App() {
         <Route exact path='/series' component={Series}/>
         <Route exact path="/movie/:id" component={Movie}/>
         <Route exact path="/serie/:id" component={Serie}/>
+        <Route path="/favorites" component={Favorites}/>
         <Route component={Error404}/>
       </Switch>
+      <Footer/>
     </React.Fragment>
   )
 }
