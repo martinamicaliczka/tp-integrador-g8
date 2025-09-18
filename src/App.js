@@ -14,7 +14,7 @@ function App() {
     <React.Fragment>
       <Header/>
       <Switch>
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Route exact path="/" component={Home}/>
         <Route path='/results/:busqueda' component={ResultadosBusqueda}/>
         <Route exact path='/movies' component={Peliculas}/>
         <Route exact path='/series' component={Series}/>
