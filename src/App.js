@@ -1,5 +1,5 @@
 import React from "react"
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect} from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ResultadosBusqueda from "./screens/ResultadosBusqueda/ResultadosBusqueda";
@@ -8,14 +8,12 @@ import Serie from "./screens/Serie/Serie";
 import Peliculas from "./screens/Peliculas/Peliculas";
 import Series from "./screens/Series/Series";
 import Error404 from "./screens/Error/Error404";
-import Home from "./screens/Home/Home";
 import Favorites from "./screens/Favorites/Favorites";
 function App() {
   return (
     <React.Fragment>
       <Header/>
       <Switch>
-<<<<<<< HEAD
         <Route exact path="/" render={() => <Redirect to="/home" />} />
         <Route path='/results/:busqueda' component={ResultadosBusqueda}/>
         <Route exact path='/movies' component={Peliculas}/>
@@ -23,20 +21,8 @@ function App() {
         <Route exact path="/movie/:id" component={Movie}/>
         <Route exact path="/serie/:id" component={Serie}/>
         <Route component={Error404}/>
-=======
-        <Route exact path="/" component={Home} />
-        <Route path='/results/:busqueda' component={ResultadosBusqueda}/>
-        <Route path='/movies' component={Peliculas}/>
-        <Route path='/series' component={Series}/>
-        <Route path="/movie/:id" component={Movie}/>
-        <Route path="/serie/:id" component={Serie}/>
-        <Route path="/favorites" component={Favorites}/>
-        <Route path="*" component={Error404}/>
->>>>>>> 19c1d00ca7a3d62c05d991e99a92e4c9a43b6612
       </Switch>
-      <Footer/>
     </React.Fragment>
-  );
+  )
 }
-
 export default App;
