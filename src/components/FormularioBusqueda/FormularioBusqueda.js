@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import "./styles.css";
 
 class FormularioBusqueda extends Component {
@@ -12,7 +11,6 @@ class FormularioBusqueda extends Component {
         }
     controlarForm(e){
         e.preventDefault()
-        localStorage.setItem("tipoBusqueda", this.state.tipoBusqueda)
         this.props.history.push(`/results/${this.state.busqueda}`)
     }
     controlarInput(e){
@@ -40,4 +38,4 @@ class FormularioBusqueda extends Component {
         )
     }
 }
-export default withRouter(FormularioBusqueda);
+export default FormularioBusqueda;

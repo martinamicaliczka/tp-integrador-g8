@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { api_key } from "../../utils/ApiKey";
-import { Link } from 'react-router-dom';
 import FormularioBusqueda from '../../components/FormularioBusqueda/FormularioBusqueda';
 
 export default class ResultadosBusqueda extends Component {
@@ -11,23 +10,20 @@ export default class ResultadosBusqueda extends Component {
       }
     }
     componentDidMount(){
-      this.buscar()
-    }
-    buscar(){
       const texto = this.props.match.params.busqueda.toLowerCase()
-      const tipoBusqueda = localStorage.getItem("tipoBusqueda")
       let endpoint;
+      /*   
       if (tipoBusqueda === "serie") {
         endpoint = (`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=es-ES&page=1`)
       } else {
         endpoint = (`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=es-ES&page=1`)
       }
-      let that = this
+      */
       fetch(endpoint)
         .then(res => res.json())
         .then(data => {
           const filtrados = data.results.filter(item => {
-            const titulo = item.title ? item.title.toLowerCase() : item.name.toLowerCase()
+            //* const titulo = item.title ? item.title.toLowerCase() : item.name.toLowerCase()
             return titulo.includes(texto)
           })
           this.setState({
@@ -36,8 +32,7 @@ export default class ResultadosBusqueda extends Component {
           
         })
         .catch((err) => console.log(err))
-
-    }
+      }
     render(){
       return(
         <div>
@@ -50,6 +45,5 @@ export default class ResultadosBusqueda extends Component {
             ))}
           </ul>
       </div>
-      )
+      )}
     }
-}
