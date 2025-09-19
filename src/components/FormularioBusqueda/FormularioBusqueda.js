@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import "./styles.css";
 
 class FormularioBusqueda extends Component {
@@ -11,11 +12,12 @@ class FormularioBusqueda extends Component {
         }
     controlarForm(e){
         e.preventDefault()
-        this.props.history.push(`/resultadoFiltro/${this.state.busqueda}`)
+        localStorage.setItem("tipoBusqueda", this.state.tipoBusqueda)
+        this.props.history.push(`/results/${this.state.busqueda}`)
     }
     controlarInput(e){
         this.setState({
-            busqueda: e.target.value
+            busqueda: e.target.value.toLowerCase()
     })
     }
     controlarTipoBusqueda(e){
@@ -29,7 +31,7 @@ class FormularioBusqueda extends Component {
             <form onSubmit={(e) => this.controlarForm(e)} className='search-form'>            
                 <input type="text" onChange={(e) => this.controlarInput(e)} placeholder="Buscar..." /> 
                 <label>
-                    <input type="radio" name="tipoBusqueda" checked onChange={(e) => this.controlarTipoBusqueda}/> Peliculas
+                    <input type="radio" name="tipoBusqueda"  onChange={(e) => this.controlarTipoBusqueda}/> Peliculas
                     <input type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> Series
                 </label>
 
@@ -38,4 +40,4 @@ class FormularioBusqueda extends Component {
         )
     }
 }
-export default FormularioBusqueda;
+export default withRouter(FormularioBusqueda);
