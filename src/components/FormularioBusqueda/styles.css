@@ -6,15 +6,10 @@
 .label{
     display: none;
 }
-.btn{
+.btn-search{
     margin-left: 15px;
     width: 100px;
 }
 .space{
     width: 200px;
-}
-@media (max-width: 480px){
-    .buscador{
-        justify-content: center;
-    }
 }

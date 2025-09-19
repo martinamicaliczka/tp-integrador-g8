@@ -1,6 +1,5 @@
 import React,{Component} from "react";
 import "./styles.css"
-
 class DetalleMovie extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +12,7 @@ class DetalleMovie extends Component {
     let favsRecuperados = JSON.parse(storage);
     if (favsRecuperados != null) {
         favsRecuperados.includes(this.props.movie.id) ? this.setState({esFav: true }) : this.setState({ esFav: false });
-    } 
+        } 
     }
     agregarFavorito(id){
     let storage= localStorage.getItem('favoritosPeliculas');

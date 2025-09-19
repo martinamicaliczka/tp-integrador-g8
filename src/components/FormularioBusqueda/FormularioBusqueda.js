@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "./styles.css";
-
 class FormularioBusqueda extends Component {
     constructor(props){
         super(props)
@@ -31,7 +30,7 @@ class FormularioBusqueda extends Component {
                     <input className="label" type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> 
                     <input className="label" type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> 
                 </label>
-                <button type="submit" className="btn btn-success btn-sm">Buscar</button> 
+                <button type="submit" className="btn-search btn-success btn-sm">Buscar</button> 
             </form>
         )
     }

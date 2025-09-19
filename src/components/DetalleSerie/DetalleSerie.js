@@ -12,7 +12,7 @@ export default class DetalleSerie extends Component {
     let favsRecuperados = JSON.parse(storage);
     if (favsRecuperados != null) {
         favsRecuperados.includes(this.props.serie.id) ? this.setState({esFav: true }) : this.setState({ esFav: false });
-    } 
+        } 
     }
     agregarFavorito(id){
     let storage= localStorage.getItem('favoritosSeries');
@@ -24,7 +24,7 @@ export default class DetalleSerie extends Component {
         localStorage.setItem('favoritosSeries', JSON.stringify(favsRecuperados));
     }
     this.setState({
-    esFav: true
+        esFav: true
     })
     }
     eliminarFavoritos(id){
@@ -33,7 +33,7 @@ export default class DetalleSerie extends Component {
         favsRecuperados = favsRecuperados.filter(favId => favId !== id);
         localStorage.setItem('favoritosSeries', JSON.stringify(favsRecuperados))
         this.setState({
-        esFav: false
+            esFav: false
         })
     }
     render() {
