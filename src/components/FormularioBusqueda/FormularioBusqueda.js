@@ -23,16 +23,14 @@ class FormularioBusqueda extends Component {
             tipoBusqueda: e.target.value
         })
     }
-
     render() {
         return (
             <form onSubmit={(e) => this.controlarForm(e)} className='search-form'>            
-                <input type="text" onChange={(e) => this.controlarInput(e)} placeholder="Buscar..." /> 
+                <input className="space" type="text" onChange={(e) => this.controlarInput(e)} placeholder=" Titulo, Pelicula, Serie..." /> 
                 <label>
-                    <input type="radio" name="tipoBusqueda"  onChange={(e) => this.controlarTipoBusqueda}/> Peliculas
-                    <input type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> Series
+                    <input className="label" type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> 
+                    <input className="label" type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> 
                 </label>
-
                 <button type="submit" className="btn btn-success btn-sm">Buscar</button> 
             </form>
         )
