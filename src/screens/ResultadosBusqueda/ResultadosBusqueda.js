@@ -1,49 +1,73 @@
 import React, { Component } from 'react';
 import { api_key } from "../../utils/ApiKey";
 import FormularioBusqueda from '../../components/FormularioBusqueda/FormularioBusqueda';
+import Pelicula from '../../components/Pelicula/Pelicula';
+import Serie from '../../components/Serie/Serie';
 
 export default class ResultadosBusqueda extends Component {
   constructor(props){
     super(props)
       this.state = {
-        resultados: []
+        resultadosPeliculas: [],
+        resultadosSeries: [],
+        cargarResultados: true
       }
     }
-    componentDidMount(){
-      const texto = this.props.match.params.busqueda.toLowerCase()
-      let endpoint;
-      /*   
-      if (tipoBusqueda === "serie") {
-        endpoint = (`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=es-ES&page=1`)
-      } else {
-        endpoint = (`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=es-ES&page=1`)
-      }
-      */
-      fetch(endpoint)
-        .then(res => res.json())
-        .then(data => {
-          const filtrados = data.results.filter(item => {
-            //* const titulo = item.title ? item.title.toLowerCase() : item.name.toLowerCase()
-            return titulo.includes(texto)
-          })
-          this.setState({
-            resultados: filtrados
-          })
-          
+    componentDidMount() {
+      let textoBusqueda = this.props.match.params.busqueda
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}include_adult=false&query=${textoBusqueda}&language=en-US&page=1'`)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          resultadosPeliculas: data.results,
+          cargarResultados: false
         })
-        .catch((err) => console.log(err))
-      }
-    render(){
+      })
+      .catch((err) => console.log(err))
+
+      fetch(`https://api.themoviedb.org/3/search/tv?api_key=${api_key}include_adult=false&query=${textoBusqueda}&language=en-US&page=1`)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          resultadosSeries: data.results
+        })
+      })
+      .catch((err) => console.log(err))
+    }
+   
+    render() {
       return(
-        <div>
-          <h2>Resultados de Busqueda</h2>
-          <ul>
-            {this.state.resultados.map(item => (
-              <li key={item.id}>
-                  {item.title ? item.title : item.name}
-              </li>
-            ))}
-          </ul>
-      </div>
-      )}
+        <React.Fragment>
+          <h1>Resultados de Busqueda en Peliculas</h1>
+          <section>
+            {this.state.resultadosPeliculas && this.state.resultadosPeliculas.map(function(item){
+              return(
+                <Pelicula
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                posterPath={item.poster_path}
+                description={item.overvie}
+                />
+              )
+            })}
+          </section>
+
+          <h1>Resultados de Busqueda en Series</h1>
+          <section>
+            {this.state.resultadosSeries && this.state.resultadosSeries.map(function(item){
+              return(
+              <Serie
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              posterPath={item.poster_path}
+              description={item.overvie}
+              />
+              )
+            })}
+          </section>
+        </React.Fragment>
+      )
+      }
     }

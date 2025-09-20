@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import "./styles.css";
 class FormularioBusqueda extends Component {
     constructor(props){
@@ -27,12 +28,13 @@ class FormularioBusqueda extends Component {
             <form onSubmit={(e) => this.controlarForm(e)} className='search-form'>            
                 <input className="space" type="text" onChange={(e) => this.controlarInput(e)} placeholder=" Titulo, Pelicula, Serie..." /> 
                 <label>
-                    <input className="label" type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> 
-                    <input className="label" type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> 
+                    <input className="label" type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> Peliculas
+                    <input className="label" type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> Series
                 </label>
                 <button type="submit" className="btn-search btn-success btn-sm">Buscar</button> 
             </form>
         )
     }
 }
-export default FormularioBusqueda;
+
+export default withRouter(FormularioBusqueda)
