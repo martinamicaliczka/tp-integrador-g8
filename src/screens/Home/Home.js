@@ -26,7 +26,7 @@ export default class Home extends Component {
     .catch((err) => {console.log(err)})
 
     fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=es-ES&page=1`)
-    .then((res) => res.json)
+    .then((res) => res.json())
     .then((data) => {
       this.setState({
         seriesPopulares: data.results,
