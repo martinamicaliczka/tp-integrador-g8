@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Serie from '../../components/Serie/Serie';
-import Pelicula from '../../components/Pelicula/Pelicula';
+import { Link } from 'react-router-dom';
+import PeliculasPadre from '../../components/PeliculasPadre/PeliculasPadre';
+import SeriesPadre from '../../components/SeriesPadre/SeriesPadre'
 import { api_key } from '../../utils/ApiKey';
 
 export default class Home extends Component {
@@ -22,7 +23,7 @@ export default class Home extends Component {
         cargarPeliculasPopulares: false
       })
     })
-    .catch((err) => console.log(err))
+    .catch((err) => {console.log(err)})
 
     fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&language=es-ES&page=1`)
     .then((res) => res.json)
@@ -32,22 +33,26 @@ export default class Home extends Component {
         cargarSeriesPopulares: false
       })
     })
-    .catch((err) => console.log(err))
-  }
-    
+    .catch((err) => {console.log(err)})
+    }
+   
   render() {
     return (
       <div>
-        <React.Fragment>
           <h2>Popular movies</h2>
-          {this.state.cargarPeliculasPopulares ? <img className='gif' src='./Gifs/Cargando.gif' /> :
-          <Pelicula peliculas={(this.state.peliculasPopulares || []).splice(0,4)} />
-        }
+          {this.state.cargarPeliculasPopulares ? (<img className='gif' src='./Gifs/Cargando.gif' />) :(
+            <React.Fragment>
+              <PeliculasPadre peliculas={(this.state.peliculasPopulares || []).slice(0,4)} hayPeliculas={(this.state.peliculasPopulares || []).length > 0} />
+              <Link to='/movies'><button className='btn masPersonajes'>Ver más peliculas</button></Link>
+            </React.Fragment>
+          )}
           <h2>Popular series</h2>
-          {this.state.cargarSeriesPopulares ? <img className='gif' src='./Gifs/Cargando.gif' /> :
-          <Serie series={(this.state.seriesPopulares || []).splice(0,4)}/>
-          }
-        </React.Fragment>
+          {this.state.cargarSeriesPopulares ? (<img className='gif' src='./Gifs/Cargando.gif' />) :(
+            <React.Fragment>
+              <SeriesPadre series={(this.state.seriesPopulares || []).slice(0,4)} haySeries={(this.state.seriesPopulares || []).length > 0} />
+              <Link to='/series'><button className='btn masPersonajes'>Ver más series</button></Link>
+            </React.Fragment>
+          )}
       </div>
     )
   }
