@@ -5,7 +5,8 @@ class Serie extends Component {
   constructor(props){
     super(props)
       this.state={
-        esFav: false
+        esFav: false,
+        verDescripcion: false
       }
   }
   componentDidMount(){
@@ -37,6 +38,12 @@ class Serie extends Component {
       esFav: false
     })
   }
+  toggleDescripcion(){
+    this.setState({
+      verDescripcion: !this.state.verDescripcion
+    })
+  }
+
   render(){
     return (
       <article
@@ -49,10 +56,10 @@ class Serie extends Component {
         className="card-img-top"
       />
       <div className="cardBody">
-        <h5 className="card-title">{this.props.name}</h5>
-        {this.props.description && (
-          <p className="card-text">{this.props.description}</p>
-        )}
+        <h5 className="card-title">{this.props.title}</h5>
+          {this.state.verDescripcion && (
+          <p className="card-text">{this.props.description}</p>)}
+          <button className="btn btn-primary ver-descript" onClick={() => this.toggleDescripcion()}>{this.state.verDescripcion ? 'Ocultar descripción' : 'Ver descripción'}</button>
         <div className='botones'> 
           <Link to={`/serie/${this.props.id}`} className="btn btn-primary ver-mas">Ver más</Link>
           {!this.state.esFav ? 

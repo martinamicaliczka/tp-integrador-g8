@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import "./styles.css";
+
 class FormularioBusqueda extends Component {
     constructor(props){
         super(props)
             this.state={
                 busqueda:'',
-                tipoBusqueda: 'pelicula'
+                tipoBusqueda: 'movie'
             }
         }
     controlarForm(e){
         e.preventDefault()
-        this.props.history.push(`/results/${this.state.busqueda}`)
+        this.props.history.push(`/results/${this.state.tipoBusqueda}/${this.state.busqueda}`)
     }
     controlarInput(e){
         this.setState({
@@ -28,8 +29,8 @@ class FormularioBusqueda extends Component {
             <form onSubmit={(e) => this.controlarForm(e)} className='search-form'>            
                 <input className="space" type="text" onChange={(e) => this.controlarInput(e)} placeholder=" Titulo, Pelicula, Serie..." /> 
                 <label>
-                    <input className="label" type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> Peliculas
-                    <input className="label" type="radio" name="tipoBusqueda" onChange={(e) => this.controlarTipoBusqueda}/> Series
+                    <input  type="radio" name="tipoBusqueda" value="pelicula" onChange={(e) => this.controlarTipoBusqueda(e)}/> Peliculas
+                    <input  type="radio" name="tipoBusqueda" value="serie" onChange={(e) => this.controlarTipoBusqueda(e)}/> Series
                 </label>
                 <button type="submit" className="btn-search btn-success btn-sm">Buscar</button> 
             </form>
