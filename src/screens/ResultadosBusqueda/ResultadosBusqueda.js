@@ -9,7 +9,8 @@ export default class ResultadosBusqueda extends Component {
     super(props)
       this.state = {
         resultadosBusqueda: [],
-        cargando: true
+        cargando: true,
+        sinResultados: ''
       }
     }
     componentDidMount() {
@@ -27,6 +28,15 @@ export default class ResultadosBusqueda extends Component {
             resultadosBusqueda: resultado,
             cargando: false
           })
+        if (!this.state.resultadosBusqueda.length > 0) {
+            this.setState({
+              sinResultados: 'No se encontraron resultados'
+            })
+        } else {
+          this.setState({
+            sinResultados: ''
+          })
+        }
         })
         .catch((err) => {console.log(err)})
     }
@@ -50,6 +60,8 @@ export default class ResultadosBusqueda extends Component {
                 <PeliculasPadre peliculas={this.state.resultadosBusqueda}  hayPeliculas={true}  />
               : <SeriesPadre series={this.state.resultadosBusqueda} haySeries={true} />
                )} 
+
+               <p> {this.state.sinResultados}</p>
           </React.Fragment>
         </div>
       )
