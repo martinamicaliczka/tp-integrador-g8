@@ -108,6 +108,7 @@ nav {
     top: 0;
     background-color: #141414;
     z-index: 1000;
+    width: 100%;
 }
 .masPersonajes{
     color:#990000;
