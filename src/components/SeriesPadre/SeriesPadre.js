@@ -11,6 +11,7 @@ function SeriesPadre(props) {
       props.haySeries ?
       props.series.map((p) => (
           <Serie
+            key={p.id}
             id={p.id}
             posterPath={p.poster_path}
             name={p.name}             
@@ -18,7 +19,7 @@ function SeriesPadre(props) {
             origin={p.origin_country}
             extra={`Estreno: ${p.first_air_date}`}
             onDelete={props.onDelete}
-            tipo={"tv"}
+            eliminarFavoritoEnPadre={props.eliminarFavoritoEnPadre}
           />
       ))
       :

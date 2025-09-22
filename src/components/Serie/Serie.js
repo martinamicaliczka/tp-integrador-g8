@@ -37,6 +37,9 @@ class Serie extends Component {
     this.setState({
       esFav: false
     })
+    if(this.props.eliminarFavoritoEnPadre !== undefined){
+        this.props.eliminarFavoritoEnPadre(id, 'serie')
+    }
   }
   toggleDescripcion(){
     this.setState({

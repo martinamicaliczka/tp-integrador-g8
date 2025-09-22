@@ -12,7 +12,8 @@ export default class Peliculas extends Component {
                 paginaSiguiente: "",
                 busqueda:'',
                 backup: [],
-                hayPeliculas: true
+                hayPeliculas: true,
+                hayFiltro: null
             }   
     }
     componentDidMount(){
@@ -59,6 +60,7 @@ export default class Peliculas extends Component {
         this.setState({
             peliculas: filtrado,
         })
+        {this.state.peliculas.length > 0 ? this.setState.hayFiltro=true : this.setState.hayFiltro=false}
     }
     render() {
         return (
@@ -68,6 +70,7 @@ export default class Peliculas extends Component {
                     {this.state.pedidoInicialCompleto ?
                         <PeliculasPadre peliculas={this.state.peliculas} hayPeliculas={this.state.hayPeliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
                     }
+                    {!this.state.hayFiltro ? <h4>No hay coincidencias</h4> : ""}
                     {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más peliculas</button> : ''}
                 </React.Fragment>
         )

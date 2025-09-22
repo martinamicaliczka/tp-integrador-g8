@@ -44,14 +44,26 @@ export default class Home extends Component {
           {this.state.cargarPeliculasPopulares ? (<img className='gif' src='/Gifs/Cargando.gif' />) :(
             <React.Fragment>
               <PeliculasPadre peliculas={(this.state.peliculasPopulares || []).slice(0,4)} hayPeliculas={(this.state.peliculasPopulares || []).length > 0} />
+<<<<<<< HEAD
               <Link to='/movies'><button className="home-btn">Ver más peliculas</button></Link>
             </React.Fragment>)}
+=======
+              <Link to='/movies' className='home-btn-decoration'><button className="home-btn">Ver más peliculas</button></Link>
+            </React.Fragment>
+          )}
+>>>>>>> 1b46d85353a35dbc69d7ad8cb0e14839b6950824
           <h2 className="titulo">Popular Series</h2>
           {this.state.cargarSeriesPopulares ? (<img className='gif' src='/Gifs/Cargando.gif' />) :(
             <React.Fragment>
               <SeriesPadre series={(this.state.seriesPopulares || []).slice(0,4)} haySeries={(this.state.seriesPopulares || []).length > 0} />
+<<<<<<< HEAD
               <Link to='/series'><button className='home-btn'>Ver más series</button></Link>
             </React.Fragment>)}
+=======
+              <Link to='/series' className='home-btn-decoration' ><button className='home-btn'>Ver más series</button></Link>
+            </React.Fragment>
+          )}
+>>>>>>> 1b46d85353a35dbc69d7ad8cb0e14839b6950824
       </div>
     )
   }

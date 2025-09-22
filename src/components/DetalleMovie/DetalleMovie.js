@@ -36,6 +36,9 @@ class DetalleMovie extends Component {
         esFav: false
         })
     }
+    chequeaContenido(){
+        
+    }
     render() {
         const {movie} = this.props
         return (
