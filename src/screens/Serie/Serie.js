@@ -5,8 +5,8 @@ import DetalleSerie from "../../components/DetalleSerie/DetalleSerie";
 export default class Serie extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            serie: null
+            this.state = {
+                serie: null
         }
     }
     componentDidMount() {
@@ -20,9 +20,11 @@ export default class Serie extends Component {
             this.setState({ 
                 serie: data 
             });
+        {serie.lenght == 0 ? this.props.history.push ("*"): null}
         })
         .catch((err) => console.log("Error al traer detalle:", err));
     }
+
     render() {
         if (!this.state.serie) {
             return <img className='gif' src='/Gifs/Cargando.gif' />
