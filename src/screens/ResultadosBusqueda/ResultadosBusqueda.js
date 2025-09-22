@@ -30,7 +30,7 @@ export default class ResultadosBusqueda extends Component {
           })
         if (!this.state.resultadosBusqueda.length > 0) {
             this.setState({
-              sinResultados: 'No se encontraron resultados'
+              sinResultados: <h5>No se encontraron resultados</h5>
             })
         } else {
           this.setState({
@@ -46,9 +46,7 @@ export default class ResultadosBusqueda extends Component {
         prevProps.match.params.tipoBusqueda !== this.props.match.params.tipoBusqueda
         ||
         prevProps.match.params.busqueda !== this.props.match.params.busqueda
-      ) {
-          this.buscarResultados()
-        }
+      ) {this.buscarResultados()}
     }
     render() {
       return(
@@ -57,10 +55,9 @@ export default class ResultadosBusqueda extends Component {
             <h2>Resultados de Busqueda</h2>
             {this.state.cargando ? (<img className='gif' src='/Gifs/Cargando.gif' />) :( 
               this.props.match.params.tipoBusqueda == 'movie' ?
-                <PeliculasPadre peliculas={this.state.resultadosBusqueda}  hayPeliculas={true}  />
+                <PeliculasPadre peliculas={this.state.resultadosBusqueda} hayPeliculas={true}  />
               : <SeriesPadre series={this.state.resultadosBusqueda} haySeries={true} />
                )} 
-
                <p> {this.state.sinResultados}</p>
           </React.Fragment>
         </div>
