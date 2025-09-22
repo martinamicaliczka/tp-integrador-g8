@@ -131,11 +131,13 @@ nav {
     background-color: whitesmoke;
     border-color: #990000;
     color: #990000;
+    box-shadow: none;
 }
 .btn-primary:not(:disabled):not(.disabled):active{
     background-color: whitesmoke;
     border-color: #990000;
     color: #990000;
+    box-shadow: none
 }
 @media (max-width: 480px){
     .single-card-movie {
