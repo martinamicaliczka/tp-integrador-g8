@@ -11,6 +11,7 @@ function PeliculasPadre(props) {
       props.hayPeliculas ?
       props.peliculas.map((p) => (
           <Pelicula
+            key={p.id}
             id={p.id}
             posterPath={p.poster_path}
             title={p.title}             

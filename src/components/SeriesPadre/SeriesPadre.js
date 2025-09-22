@@ -11,6 +11,7 @@ function SeriesPadre(props) {
       props.haySeries ?
       props.series.map((p) => (
           <Serie
+            key={p.id}
             id={p.id}
             posterPath={p.poster_path}
             name={p.name}             

@@ -9,7 +9,6 @@ export default class FormularioFitrado extends Component {
     }
     controlarForm(e){
         e.preventDefault()
-        this.props.history.push(`/resultadoFiltro/${this.state.busqueda}`)
     }
      controlarInput(e){
         this.setState({
