@@ -37,6 +37,9 @@ class Pelicula extends Component {
     this.setState({
       esFav: false
     })
+    if(this.props.eliminarFavoritoEnPadre !== undefined){
+        this.props.eliminarFavoritoEnPadre(id, 'pelicula')
+    }
   }
   toggleDescripcion(){
     this.setState({

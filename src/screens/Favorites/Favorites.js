@@ -57,14 +57,38 @@ export default class Favorites extends Component {
             this.setState({haySeries: false})
         }
     }
+
+    eliminarFavoritoEnPadre(id, tipo) {
+        const arrayAFiltrar = tipo === 'pelicula' ? this.state.favoritosPeliculas : this.state.favoritosSeries
+        const favoritosFiltrado = arrayAFiltrar.filter(elm => elm.id !== id)
+        const objParaElState = tipo === 'pelicula' ? {
+            favoritosPeliculas: favoritosFiltrado
+        } : {
+            favoritosSeries: favoritosFiltrado
+        }
+        this.setState(objParaElState)
+        
+        {favoritosFiltrado.length <= 0 ? (tipo === 'pelicula' ? this.setState({
+            hayPeliculas: false
+        }) : this.setState({
+            haySeries: false
+        })) : ""}
+    }
     render() {
         return (
             <React.Fragment>
             <h1 className="mi-lista">Mi lista</h1>
             <h2>Películas favoritas</h2>
-            <PeliculasPadre hayPeliculas={this.state.hayPeliculas} peliculas={this.state.favoritosPeliculas} />
+            <PeliculasPadre 
+            hayPeliculas={this.state.hayPeliculas} 
+            peliculas={this.state.favoritosPeliculas} 
+            eliminarFavoritoEnPadre={(id, tipo) => this.eliminarFavoritoEnPadre(id, tipo)} 
+            />
             <h2>Series favoritas</h2>
-            <SeriesPadre haySeries={this.state.haySeries} series={this.state.favoritosSeries} />
+            <SeriesPadre 
+            haySeries={this.state.haySeries} 
+            series={this.state.favoritosSeries} 
+            eliminarFavoritoEnPadre={(id, tipo) => this.eliminarFavoritoEnPadre(id, tipo)} />
         </React.Fragment>
         )
     }

@@ -19,7 +19,7 @@ function SeriesPadre(props) {
             origin={p.origin_country}
             extra={`Estreno: ${p.first_air_date}`}
             onDelete={props.onDelete}
-            tipo={"tv"}
+            eliminarFavoritoEnPadre={props.eliminarFavoritoEnPadre}
           />
       ))
       :
