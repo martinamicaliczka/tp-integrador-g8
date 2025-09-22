@@ -17,11 +17,7 @@ function App() {
       <Header/>
       <Switch>
         <Route exact path="/" component={Home}/>
-<<<<<<< HEAD
         <Route path='/results/:tipoBusqueda/:busqueda' component={ResultadosBusqueda}/>
-=======
-        <Route exact path='/results/:tipo/:busqueda' component={ResultadosBusqueda}/>
->>>>>>> 1b46d85353a35dbc69d7ad8cb0e14839b6950824
         <Route exact path='/movies' component={Peliculas}/>
         <Route exact path='/series' component={Series}/>
         <Route exact path="/movie/:id" component={Movie}/>
