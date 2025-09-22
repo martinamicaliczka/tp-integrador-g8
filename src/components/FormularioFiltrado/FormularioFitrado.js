@@ -13,7 +13,7 @@ export default class FormularioFitrado extends Component {
      controlarInput(e){
         this.setState({
             busqueda: e.target.value.toLowerCase()
-        }, () => this.props.filtroPersonajes(this.state.busqueda))
+        }, () => this.props(this.state.busqueda))
     }
     render() {
         return (
