@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { api_key } from "../../utils/ApiKey";
+import { api_key } from '../../utils/ApiKey';
 import FormularioBusqueda from '../../components/FormularioBusqueda/FormularioBusqueda';
 import PeliculasPadre from '../../components/PeliculasPadre/PeliculasPadre';
 import SeriesPadre from '../../components/SeriesPadre/SeriesPadre';
@@ -9,29 +9,50 @@ export default class ResultadosBusqueda extends Component {
     super(props)
       this.state = {
         resultadosBusqueda: [],
-        cargarResultados: true
+        cargando: true
       }
     }
     componentDidMount() {
-      let textoBusqueda = this.props.match.params.busqueda
-      let tipoBusqueda = this.props.match.params.tipo
-      fetch(`https://api.themoviedb.org/3/search/${tipoBusqueda}?api_key=${api_key}&query=${textoBusqueda}`)
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({
-          resultadosBusqueda: data.results,
-          cargarResultados: false
+      this.buscarResultados()
+    }
+    
+    buscarResultados(){
+      let tipoBusqueda = this.props.match.params.tipoBusqueda
+      let busqueda = this.props.match.params.busqueda
+      fetch(`https://api.themoviedb.org/3/search/multi?query=${busqueda}&api_key=${api_key}`)
+        .then((res) => res.json())
+        .then((data) => {
+          let resultado = data.results.filter((elm) => elm.media_type == tipoBusqueda )
+          this.setState({
+            resultadosBusqueda: resultado,
+            cargando: false
+          })
         })
-      })
-      .catch((err) => console.log(err))
+        .catch((err) => {console.log(err)})
     }
 
-  
+    componentDidUpdate(prevProps){
+      if(
+        prevProps.match.params.tipoBusqueda !== this.props.match.params.tipoBusqueda
+        ||
+        prevProps.match.params.busqueda !== this.props.match.params.busqueda
+      ) {
+          this.buscarResultados()
+        }
+    }
     render() {
       return(
         <div>
-
+          <React.Fragment>
+            <h2>Resultados de Busqueda</h2>
+            {this.state.cargando ? (<img className='gif' src='/Gifs/Cargando.gif' />) :( 
+              this.props.match.params.tipoBusqueda == 'movie' ?
+                <PeliculasPadre peliculas={this.state.resultadosBusqueda}  hayPeliculas={true}  />
+              : <SeriesPadre series={this.state.resultadosBusqueda} haySeries={true} />
+               )} 
+          </React.Fragment>
         </div>
       )
     }
   }
+  

@@ -56,7 +56,7 @@ class Serie extends Component {
         className="card-img-top"
       />
       <div className="cardBody">
-        <h5 className="card-title">{this.props.title}</h5>
+        <h5 className="card-title">{this.props.name}</h5>
           {this.state.verDescripcion && (
           <p className="card-text">{this.props.description}</p>)}
           <button className="btn btn-primary ver-descript" onClick={() => this.toggleDescripcion()}>{this.state.verDescripcion ? 'Ocultar descripción' : 'Ver descripción'}</button>

@@ -17,7 +17,7 @@ export default class Favorites extends Component {
         let storageP= localStorage.getItem('favoritosPeliculas');
         if(storageP!==null){
             let favsRecuperadosPelicula = JSON.parse(storageP);
-            if(favsRecuperadosPelicula.length>0){
+            if(favsRecuperadosPelicula.length > 0){
                 let arrayPeliculas = [];
                 favsRecuperadosPelicula.map(id => fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}&language=es-ES`)
             .then((res) => res.json())
@@ -38,7 +38,7 @@ export default class Favorites extends Component {
         let storageS= localStorage.getItem('favoritosSeries');
         if(storageS!==null){
             let favsRecuperadosSeries = JSON.parse(storageS);
-            if(favsRecuperadosSeries.length>0){
+            if(favsRecuperadosSeries.length > 0){
                 let arraySeries = [];
                 favsRecuperadosSeries.map(id => fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}&language=es-ES`)
             .then((res) => res.json())

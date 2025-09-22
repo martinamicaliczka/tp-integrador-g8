@@ -7,7 +7,7 @@ class FormularioBusqueda extends Component {
         super(props)
             this.state={
                 busqueda:'',
-                tipoBusqueda: 'movie'
+                tipoBusqueda: 'peliculas'
             }
         }
     controlarForm(e){
@@ -19,19 +19,18 @@ class FormularioBusqueda extends Component {
             busqueda: e.target.value.toLowerCase()
     })
     }
-    controlarTipoBusqueda(e){
+     controlarTipoBusqueda(e){
         this.setState({
             tipoBusqueda: e.target.value
         })
     }
+    
     render() {
         return (
             <form onSubmit={(e) => this.controlarForm(e)} className='search-form'>            
-                <input className="space" type="text" onChange={(e) => this.controlarInput(e)} placeholder=" Titulo, Pelicula, Serie..." /> 
-                <label>
-                    <input  type="radio" name="tipoBusqueda" value="pelicula" onChange={(e) => this.controlarTipoBusqueda(e)}/> Peliculas
-                    <input  type="radio" name="tipoBusqueda" value="serie" onChange={(e) => this.controlarTipoBusqueda(e)}/> Series
-                </label>
+                <input className="space" type="text" onChange={(e) => this.controlarInput(e)} placeholder=" Titulo, Pelicula, Serie..." />
+                 <input className= 'radio-button' type="radio" name="tipoBusqueda" value="movie" onChange={(e) => this.controlarTipoBusqueda(e)}/> Peliculas
+                 <input className='radio-button' type="radio" name="tipoBusqueda" value="tv" onChange={(e) => this.controlarTipoBusqueda(e)}/> Series
                 <button type="submit" className="btn-search btn-success btn-sm">Buscar</button> 
             </form>
         )
