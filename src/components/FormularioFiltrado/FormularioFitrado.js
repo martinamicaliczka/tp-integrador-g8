@@ -10,10 +10,10 @@ export default class FormularioFitrado extends Component {
     controlarForm(e){
         e.preventDefault()
     }
-     controlarInput(e){
+    controlarInput(e){
         this.setState({
             busqueda: e.target.value.toLowerCase()
-        }, () => this.props(this.state.busqueda))
+        }, () => this.props.filtroPersonajes(this.state.busqueda))
     }
     render() {
         return (
@@ -23,5 +23,5 @@ export default class FormularioFitrado extends Component {
             </form>
         </div>
     )
-  }
+}
 }

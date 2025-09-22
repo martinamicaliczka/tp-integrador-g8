@@ -65,7 +65,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: initial;
 }
 .cardBody {
     margin-top: 20px;
@@ -77,6 +77,7 @@ nav {
 .single-card-movie {
     width: 24%;
     margin-bottom: 10px;
+    margin-right: 14px;
 }
 .single-card-playing {
     width: 15%;
