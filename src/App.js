@@ -15,14 +15,14 @@ function App() {
     <React.Fragment>
       <Header/>
       <Switch>
-        <Route path="/" component={Home}/>
-        <Route path='/results/:tipo/:busqueda' component={ResultadosBusqueda}/>
-        <Route path='/movies' component={Peliculas}/>
-        <Route path='/series' component={Series}/>
+        <Route exact path="/" component={Home}/>
+        <Route exact path='/results/:tipo/:busqueda' component={ResultadosBusqueda}/>
+        <Route exact path='/movies' component={Peliculas}/>
+        <Route exact path='/series' component={Series}/>
         <Route exact path="/movie/:id" component={Movie}/>
-        <Route exaxct path="/serie/:id" component={Serie}/>
-        <Route path="/favorites" component={Favorites}/>
-        <Route path="*" component={Error404}/>
+        <Route exact path="/serie/:id" component={Serie}/>
+        <Route exact path="/favorites" component={Favorites}/>
+        <Route component={Error404}/>
       </Switch>
       <Footer/>
     </React.Fragment>
