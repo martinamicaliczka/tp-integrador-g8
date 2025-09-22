@@ -39,22 +39,22 @@ export default class Home extends Component {
   
   render() {
     return (
-      <div>
+      <React.Fragment>
           <h2 className="titulo">Popular Movies</h2>
           {this.state.cargarPeliculasPopulares ? (<img className='gif' src='/Gifs/Cargando.gif' />) :(
-            <React.Fragment>
-              <PeliculasPadre peliculas={(this.state.peliculasPopulares || []).slice(0,4)} hayPeliculas={(this.state.peliculasPopulares || []).length > 0} />
+            <div>
+              <PeliculasPadre peliculas={this.state.peliculasPopulares.slice(0,4)} hayPeliculas={this.state.peliculasPopulares.length > 0} /> 
               <Link to='/movies' className='home-btn-decoration'><button className="home-btn">Ver más peliculas</button></Link>
-            </React.Fragment>
+            </div> 
           )}
           <h2 className="titulo">Popular Series</h2>
           {this.state.cargarSeriesPopulares ? (<img className='gif' src='/Gifs/Cargando.gif' />) :(
-            <React.Fragment>
-              <SeriesPadre series={(this.state.seriesPopulares || []).slice(0,4)} haySeries={(this.state.seriesPopulares || []).length > 0} />
+            <div>
+              <SeriesPadre series={this.state.seriesPopulares.slice(0,4)} haySeries={this.state.seriesPopulares.length > 0} />
               <Link to='/series' className='home-btn-decoration' ><button className='home-btn'>Ver más series</button></Link>
-            </React.Fragment>
+            </div>
           )}
-      </div>
+      </React.Fragment>
     )
   }
 }

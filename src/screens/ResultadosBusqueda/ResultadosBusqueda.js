@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { api_key } from '../../utils/ApiKey';
-import FormularioBusqueda from '../../components/FormularioBusqueda/FormularioBusqueda';
 import PeliculasPadre from '../../components/PeliculasPadre/PeliculasPadre';
 import SeriesPadre from '../../components/SeriesPadre/SeriesPadre';
 

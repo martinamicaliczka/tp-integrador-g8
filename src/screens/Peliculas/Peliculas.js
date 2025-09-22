@@ -73,7 +73,7 @@ export default class Peliculas extends Component {
                     }
                     {this.state.hayFiltro === false ? <h5>No hay coincidencias</h5> : ""}
                     {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más peliculas</button> : ''}
-                </React.Fragment>
+            </React.Fragment>
         )
     }
 }
