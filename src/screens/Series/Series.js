@@ -59,8 +59,8 @@ export default class Series extends Component {
         const filtrado = this.state.backup.filter((elm) => elm.name.toLowerCase().includes(texto.toLowerCase()));
         this.setState({
             series: filtrado,
+            hayFiltro: filtrado.length > 0 ? true : false
         })
-        {this.state.series.length > 0 ? this.setState.hayFiltro=true : this.setState.hayFiltro=false}
     }
     render() {
         return (
@@ -70,7 +70,7 @@ export default class Series extends Component {
                     {this.state.pedidoInicialCompleto ?
                         <SeriesPadre haySeries={this.state.haySeries} series={this.state.series} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
                     }
-                    {!this.state.hayFiltro ? <h4>No hay coincidencias</h4> : ""}
+                    {this.state.hayFiltro === false ? <h5>No hay coincidencias</h5> : ""}
                     {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más series</button> : ''}
             </React.Fragment>
         )

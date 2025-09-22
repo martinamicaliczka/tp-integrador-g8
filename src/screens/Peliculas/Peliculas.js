@@ -40,7 +40,6 @@ export default class Peliculas extends Component {
                 peliculas: this.state.peliculas.concat(data.results),
                 paginaSiguiente: nextUrl,
                 backup: this.state.backup.concat(data.results),
-
             },
         )
         })
@@ -57,10 +56,12 @@ export default class Peliculas extends Component {
     }
     filtroPersonajes(texto){
         const filtrado = this.state.backup.filter((elm) => elm.title.toLowerCase().includes(texto.toLowerCase()));
+        
         this.setState({
             peliculas: filtrado,
+            hayFiltro: filtrado.length > 0 ? true : false
         })
-        {this.state.peliculas.length > 0 ? this.setState.hayFiltro=true : this.setState.hayFiltro=false}
+        
     }
     render() {
         return (
@@ -70,7 +71,7 @@ export default class Peliculas extends Component {
                     {this.state.pedidoInicialCompleto ?
                         <PeliculasPadre peliculas={this.state.peliculas} hayPeliculas={this.state.hayPeliculas} sectionSeries={false} onDelete={(id) => this.eliminarPersonaje(id)}/> : <img  className='gif' src='./Gifs/Cargando.gif' />
                     }
-                    {!this.state.hayFiltro ? <h4>No hay coincidencias</h4> : ""}
+                    {this.state.hayFiltro === false ? <h5>No hay coincidencias</h5> : ""}
                     {this.state.pedidoInicialCompleto ? <button className="btn masPersonajes" onClick={()=>this.irPaginaSiguiente()}>Cargar más peliculas</button> : ''}
                 </React.Fragment>
         )
