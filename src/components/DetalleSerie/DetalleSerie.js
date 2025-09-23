@@ -51,6 +51,7 @@ export default class DetalleSerie extends Component {
                         <h3>Descripción</h3>
                         <p className="description">{serie.overview}</p>
                         <p className="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong> {serie.first_air_date}</p>
+                        <p id="votes"><strong>Puntuación:</strong> {serie.vote_average}</p>
                         <p className="mt-0 mb-0" id="episodes"><strong>Número de capítulos:</strong> {serie.number_of_episodes}</p>
                         <p className="mt-0 seasons"><strong>Temporadas:</strong> {serie.number_of_seasons}</p>
                         <p className="mt-0"><strong>Géneros:</strong>
