@@ -50,7 +50,6 @@ class Pelicula extends Component {
     return (
       <article
         className="single-card-movie"
-        onDoubleClick={this.toggleSeleccion}
       >
       <img
         src={`https://image.tmdb.org/t/p/w500${this.props.posterPath}`} 

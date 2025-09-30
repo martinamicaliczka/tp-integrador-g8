@@ -58,8 +58,8 @@ class DetalleMovie extends Component {
                         <p id="votes"><strong>Puntuación:</strong> {movie.vote_average}</p>
                         <p><strong>Géneros:</strong></p>
                             <ul className='genres-list'> 
-                                {movie.genres && movie.genres.map(g => (
-                                    <li key={g.id}>{g.name}</li>
+                                {movie.genres && movie.genres.map(g, idx => (
+                                    <li key={idx + g.id}>{g.name}</li>
                                 ))}
                             </ul>
                         {!this.state.esFav ?<button 

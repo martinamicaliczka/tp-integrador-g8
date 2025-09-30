@@ -9,9 +9,9 @@ function PeliculasPadre(props) {
       props.hayPeliculas === null ?
       <img  className='gif' src='./Gifs/Cargando.gif' /> :
       props.hayPeliculas ?
-      props.peliculas.map((p) => (
+      props.peliculas.map((p, idx) => (
           <Pelicula
-            key={p.id}
+            key={idx + p.id}
             id={p.id}
             posterPath={p.poster_path}
             title={p.title}             

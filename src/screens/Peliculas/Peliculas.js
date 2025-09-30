@@ -48,12 +48,6 @@ export default class Peliculas extends Component {
         this.setState({ pedidoInicialCompleto: true }); 
 })
     }
-    eliminarPersonaje(id){
-        const personajesFiltrados = this.state.peliculas.filter((p) => p.id !== id);
-        this.setState({
-            peliculas: personajesFiltrados
-        })
-    }
     filtroPersonajes(texto){
         const filtrado = this.state.backup.filter((elm) => elm.title.toLowerCase().includes(texto.toLowerCase()));
         

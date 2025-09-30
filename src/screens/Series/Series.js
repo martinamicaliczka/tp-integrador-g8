@@ -49,12 +49,6 @@ export default class Series extends Component {
         this.setState({ pedidoInicialCompleto: true }); 
         })
     }
-    eliminarPersonaje(id){
-        const personajesFiltrados = this.state.series.filter((p) => p.id !== id);
-        this.setState({
-            series: personajesFiltrados
-        })
-    }
     filtroPersonajes(texto){
         const filtrado = this.state.backup.filter((elm) => elm.name.toLowerCase().includes(texto.toLowerCase()));
         this.setState({

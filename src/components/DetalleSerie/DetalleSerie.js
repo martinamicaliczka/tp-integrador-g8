@@ -56,8 +56,8 @@ export default class DetalleSerie extends Component {
                         <p className="mt-0 seasons"><strong>Temporadas:</strong> {serie.number_of_seasons}</p>
                         <p className="mt-0"><strong>Géneros:</strong>
                             <ul className='genres-list'>
-                                {serie.genres && serie.genres.map(g => 
-                                    <li key={g.id}>{g.name}</li>
+                                {serie.genres && serie.genres.map(g, idx => 
+                                    <li key={idx + g.id}>{g.name}</li>
                                 )}
                             </ul>
                         </p>

@@ -9,9 +9,9 @@ function SeriesPadre(props) {
       props.haySeries === null ?
       <img  className='gif' src='./Gifs/Cargando.gif' /> :
       props.haySeries ?
-      props.series.map((p) => (
+      props.series.map((p, idx) => (
           <Serie
-            key={p.id}
+            key={idx + p.id}
             id={p.id}
             posterPath={p.poster_path}
             name={p.name}             
